@@ -8,23 +8,23 @@ spring:
           enabled: true
       routes:
         - id: empleado-service
-          uri: http://localhost:8001
+          uri:lb://empleado-service
           predicates:
             - Path=/empleados/**
         - id: horasextra-service
-          uri: http://localhost:8002
+          uri: lb://horaextra-service
           predicates:
             - Path=/hora-extra/**
         - id: justificacion-service
-          uri: http://localhost:8003
+          uri: lb://justificacion-service
           predicates:
             - Path=/justificacion/**
         - id: rrhh-service
-          uri: http://localhost:8004
+          uri: lb://rrhh-service
           predicates:
             - Path=/rrhh/** 
         - id: upload-service
-          uri: http://localhost:8005
+          uri: lb://upload-service
           predicates:
             - Path=/upload/**
 eureka:
