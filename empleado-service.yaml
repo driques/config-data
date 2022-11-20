@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: empleado-service
 server:
   port: 8001
 eureka:

@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: justificacion-service
 server:
   port: 8003
 eureka:
