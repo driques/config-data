@@ -1,0 +1,38 @@
+server:
+  port: 8080 
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: autorizacion-service
+          uri: http://localhost:8001
+          predicates:
+            - Path=/autorizacion/**
+        - id: datareloj-service
+          uri: http://localhost:8003
+          predicates:
+            - Path=/datareloj/**
+        - id: empleado-service
+          uri: http://localhost:8002
+          predicates:
+            - Path=/empleado/**
+        - id: justificativo-service
+          uri: http://localhost:8004
+          predicates:
+            - Path=/justificativo/** 
+        - id: oficinaRRHH-service
+          uri: http://localhost:8005
+          predicates:
+            - Path=/oficinaRRHH/**
